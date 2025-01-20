@@ -13,16 +13,26 @@ const App = () => {
 
   console.log(name);
 
+  const checkNumber = (number) => {
+    if(number > people.length - 1){
+      return 0;
+    }
+    if(number < 0){
+      return people.length - 1;
+    }
+    return number;
+  }
+
   const nextPerson = () => {
     setIndex((index) => {
       const newIndex = index + 1;
-      return newIndex;
+      return checkNumber(newIndex)
     })
   }
   const prevPerson = () => {
     setIndex((index) => {
       const newIndex = index - 1;
-      return newIndex;
+      return checkNumber(newIndex)
     })
   }
   
